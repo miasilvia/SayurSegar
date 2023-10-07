@@ -14,6 +14,8 @@ app.set("view engine", "ejs");
 //ini root level middleware
 app.use("/", routes); //panggil export index.js yg ada di folder routes
 
+app.use(express.static("public")); // memanggil public agar folder di public menjadi static
+
 //middleware untuk handle error yg lain, contoh not found
 app.use((req, res, next) => {
   const error = new Error("Not Found");

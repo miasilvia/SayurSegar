@@ -1,5 +1,6 @@
 const express = require("express");
 const routes = express.Router();
+const UserControllers = require("../controllers/userControllers"); //import controllers
 
 //contoh Route level middlaware
 const printTime = (req, res, next) => {
@@ -10,25 +11,10 @@ const printTime = (req, res, next) => {
 
 routes.use(printTime);
 
-routes.post("/register", (req, res) => {
-  const { username, password } = req.body;
-  console.log(`${username} dan ${password}`);
-  res.status(201).json({
-    message: `username anda ${username} dan password anda ${password} berhasil ditambahkan`,
-  });
-});
+routes.post("/register", UserControllers.registerFormUser);
 
-routes.get("/loginForm", (req, res) => {
-  // res.send("Hello World");
-  res.render("loginForm"); ////memanggil file greeting.ejs di file views
-});
+routes.get("/loginForm", UserControllers.loginFormUser);
 
-routes.post("/login", (req, res) => {
-  const { username, password } = req.body;
-  console.log(`${username} dan ${password}`);
-  res.status(200).json({
-    message: `Anda berhasil login dengan username ${username} dan password ${password}`,
-  });
-});
+routes.post("/login", UserControllers.loginUserResult);
 
 module.exports = routes; //untuk mengeksport objek router

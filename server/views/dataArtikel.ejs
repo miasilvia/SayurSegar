@@ -1,11 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    
-</body>
+  </head>
+  <body>
+    <h1>Daftar Produk</h1>
+    <p>
+      <% for (let i in dataArtikel.listArtikel) { %> <% for (let key in
+      dataArtikel.listArtikel[i]) { %> <%= key %> : <%=
+      dataArtikel.listArtikel[i][key] %>
+      <br />
+
+      <%}%>
+      <button>Baca</button> <br /><br />
+      <%}%>
+    </p>
+  </body>
 </html>

@@ -10,6 +10,8 @@ routes.get("/greeting", UserControllers.greeting);
 
 routes.get("/data_produk", UserControllers.viewProduct);
 
+routes.get("/data_artikel", UserControllers.viewArtikel);
+
 routes.get("../public/Sayuran.png", (req, res) => {
   res.sendFile(path.join(__dirname, "Sayuran.png"));
 });

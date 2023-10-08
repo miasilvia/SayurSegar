@@ -7,44 +7,96 @@ class UserControllers {
     res.render("greeting", { fullname: "Miaaaasa" });
   }
 
-  static viewProduct(req, res){
+  static viewProduct(req, res) {
     // let dateNow = new Date();
-  let dataProduk = {
-    // timestamp: dateNow,
-    listProduk: [
-      {
-        nama_produk: "Wortel",
-        harga_produk: 12000,
-        stok_produk: 10,
-        satuan_produk: "1 kg",
-        foto_produk: "wortel.jpg",
-        deskripsi_produk: "ini adalah wortel",
-        diskon_produk: 2,
-      },
-      {
-        nama_produk: "Tomat",
-        harga_produk: 11000,
-        stok_produk: 10,
-        satuan_produk: "250 g",
-        foto_produk: "tomat.jpg",
-        deskripsi_produk: "ini adalah tomat",
-        diskon_produk: 2,
-      },
-      {
-        nama_produk: "Timun",
-        harga_produk: 5000,
-        stok_produk: 12,
-        satuan_produk: "250 g",
-        foto_produk: "timun.jpg",
-        deskripsi_produk: "ini adalah timun",
-        diskon_produk: 0,
-      },
-    ],
-  };
-  // res.send(dataProduk);
+    let dataProduk = {
+      // timestamp: dateNow,
+      listProduk: [
+        {
+          id_produk: 1,
+          nama_produk: "Wortel",
+          harga_produk: 12000,
+          stok_produk: 10,
+          satuan_produk: "1 kg",
+          foto_produk: "wortel.jpg",
+          deskripsi_produk: "ini adalah wortel",
+          diskon_produk: 2,
+        },
+        {
+          id_produk: 2,
+          nama_produk: "Tomat",
+          harga_produk: 11000,
+          stok_produk: 10,
+          satuan_produk: "250 g",
+          foto_produk: "tomat.jpg",
+          deskripsi_produk: "ini adalah tomat",
+          diskon_produk: 2,
+        },
+        {
+          id_produk: 3,
+          nama_produk: "Timun",
+          harga_produk: 5000,
+          stok_produk: 12,
+          satuan_produk: "250 g",
+          foto_produk: "timun.jpg",
+          deskripsi_produk: "ini adalah timun",
+          diskon_produk: 0,
+        },
+      ],
+    };
+    res.render("dataProduk", { dataProduk });
+  }
 
-  res.render("dataProduk", { dataProduk });
+  static loginFormUser(req, res) {
+    res.render("loginForm"); ////memanggil file greeting.ejs di file views
+  }
 
+  static loginUserResult(req, res) {
+    const { username, password } = req.body;
+    console.log(`${username} dan ${password}`);
+    res.status(200).json({
+      message: `Anda berhasil login dengan username ${username} dan password ${password}`,
+    });
+  }
+
+  static registerFormUser(req, res) {
+    const { username, password } = req.body;
+    console.log(`${username} dan ${password}`);
+    res.status(201).json({
+      message: `username anda ${username} dan password anda ${password} berhasil ditambahkan`,
+    });
+  }
+
+  static viewArtikel(req, res) {
+    let dataArtikel = {
+      listArtikel: [
+        {
+          id_artikel: "ATL0001",
+          judul_artikel: "8 Manfaat Makan Buah dan Sayur bagi Siswa",
+          deskripsi_artikel: "ini deskripsi artikel",
+          tanggal_update: "12/12/2023",
+          gambar_artikel: "artikel1.jpg",
+          sumber_artikel: "compas.com",
+        },
+        {
+          id_artikel: "ATL0002",
+          judul_artikel: "8 Manfaat Buah Pisang",
+          deskripsi_artikel: "ini deskripsi artikel 2",
+          tanggal_update: "12/12/2023",
+          gambar_artikel: "artikel2.jpg",
+          sumber_artikel: "compas.com",
+        },
+        {
+          id_artikel: "ATL0003",
+          judul_artikel: "5 sayuran yang dapat menurunkan berat badan",
+          deskripsi_artikel: "ini deskripsi artikel 3",
+          tanggal_update: "12/12/2023",
+          gambar_artikel: "artikel3.jpg",
+          sumber_artikel: "compas.com",
+        },
+      ],
+    };
+    res.render("dataArtikel", { dataArtikel });
   }
 }
 

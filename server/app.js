@@ -38,5 +38,6 @@ const errorMiddleware = (err, re, res, next) => {
 app.use(errorMiddleware);
 
 app.listen(port, () => {
+  //untuk menyalakan server
   console.log("Server nyala");
 });

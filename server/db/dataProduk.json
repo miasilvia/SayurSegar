@@ -1,1 +1,42 @@
-[{"id":1,"nama_produk":"semangka","harga_produk":"1100000"},{"id":2,"nama_produk":"pepaya","harga_produk":"1100000"},{"id":3,"nama_produk":"kentang","harga_produk":"10000"}]
+[
+  {
+    "id_produk": 1,
+    "nama_produk": "pepayah",
+    "harga_produk": "1100000",
+    "stok_produk": 10,
+    "satuan_produk": "1 kg",
+    "foto_produk": "wortel.jpg",
+    "deskripsi_produk": "ini adalah wortel",
+    "diskon_produk": 2
+  },
+  {
+    "id_produk": 2,
+    "nama_produk": "Tomat",
+    "harga_produk": 11000,
+    "stok_produk": 10,
+    "satuan_produk": "250 g",
+    "foto_produk": "tomat.jpg",
+    "deskripsi_produk": "ini adalah tomat",
+    "diskon_produk": 2
+  },
+  {
+    "id_produk": 3,
+    "nama_produk": "Timun",
+    "harga_produk": 5000,
+    "stok_produk": 12,
+    "satuan_produk": "250 g",
+    "foto_produk": "timun.jpg",
+    "deskripsi_produk": "ini adalah timun",
+    "diskon_produk": 0
+  },
+  {
+    "id_produk": 4,
+    "nama_produk": "Jagung",
+    "harga_produk": "5000",
+    "stok_produk": "3",
+    "satuan_produk": "250 g ",
+    "foto_produk": "jagung.png",
+    "deskripsi_produk": "ini adalah jagung",
+    "diskon_produk": "0"
+  }
+]

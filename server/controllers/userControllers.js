@@ -71,6 +71,20 @@ class UserControllers {
     };
     res.render("dataArtikel", { dataArtikel });
   }
+  static viewDataProductbyId(req, res) {
+    let idParams = req.params.id_produk;
+    let result;
+
+    for (let i = 0; i < posts.length; i++) {
+      let dataById = posts[i].id_produk;
+
+      if (dataById == idParams) {
+        result = posts[i];
+      }
+    }
+    res.status(200).json(result);
+    console.log(result);
+  }
 }
 
 module.exports = UserControllers;

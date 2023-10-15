@@ -1,13 +1,14 @@
 [
   {
     "id_produk": 1,
-    "nama_produk": "pepayah",
-    "harga_produk": "1100000",
-    "stok_produk": 10,
-    "satuan_produk": "1 kg",
-    "foto_produk": "wortel.jpg",
+    "nama_produk": "Pepayas",
+    "harga_produk": "7000",
+    "stok_produk": "3",
+    "satuan_produk": "250 g ",
+    "foto_produk": "pepaya.png",
     "deskripsi_produk": "ini adalah wortel",
-    "diskon_produk": 2
+    "diskon_produk": "0",
+    "eskripsi_produk": "ini adalah pepaya"
   },
   {
     "id_produk": 2,
@@ -38,5 +39,26 @@
     "foto_produk": "jagung.png",
     "deskripsi_produk": "ini adalah jagung",
     "diskon_produk": "0"
+  },
+  {
+    "id_produk": 5,
+    "nama_produk": "Bawang Putih",
+    "harga_produk": "10000",
+    "stok_produk": "3",
+    "satuan_produk": "250 g ",
+    "foto_produk": "bawang-putih.png",
+    "deskripsi_produk": "ini adalah Bawang Putih",
+    "diskon_produk": "0"
+  },
+  {
+    "id_produk": 6,
+    "nama_produk": "Daun Bawang",
+    "harga_produk": "4000",
+    "stok_produk": "3",
+    "satuan_produk": "250 g ",
+    "foto_produk": "Daun_bawang.png",
+    "deskripsi_produk": "ini adalah Daun bawang",
+    "diskon_produk": "0",
+    "eskripsi_produk": "ini adalah Daun bawang"
   }
 ]

@@ -78,6 +78,7 @@ class UserControllers {
     for (let i = 0; i < posts.length; i++) {
       let dataById = posts[i].id_produk;
 
+      
       if (dataById == idParams) {
         result = posts[i];
       }

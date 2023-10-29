@@ -1,7 +1,7 @@
 const express = require("express");
 const routes = express.Router();
 const userRoutes = require("./userRoutes"); //memanggil file userRoutes
-const adminRoutes = require("../admin/routes/allProductRoutes");
+const adminRoutes = require("./adminRoutes");
 const path = require("path");
 const UserControllers = require("../controllers/userControllers");
 const fs = require("fs"); //memanggil fs

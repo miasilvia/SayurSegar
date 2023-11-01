@@ -60,5 +60,16 @@
     "deskripsi_produk": "ini adalah Daun bawang",
     "diskon_produk": "0",
     "eskripsi_produk": "ini adalah Daun bawang"
+  },
+  {
+    "id_produk": 7,
+    "nama_produk": "Ubis",
+    "harga_produk": "20000",
+    "stok_produk": "20",
+    "satuan_produk": "500",
+    "foto_produk": "ubi.png",
+    "deskripsi_produk": "ini adalah ubi",
+    "diskon_produk": "0",
+    "eskripsi_produk": "ini adalah ubi"
   }
 ]

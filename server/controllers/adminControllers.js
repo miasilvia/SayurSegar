@@ -1,5 +1,3 @@
-const fs = require("fs");
-const dataProducts = require("../db/dataProduk.json");
 const db = require("../db.js");
 class DataProductControllers {
   static async vieDataAllProduct(req, res) {

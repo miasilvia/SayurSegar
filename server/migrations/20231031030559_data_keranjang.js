@@ -10,8 +10,7 @@ exports.up = function (knex) {
     table.integer("id_produk").unsigned();
     table.foreign("id_produk").references("data_produk.id_produk");
     table.integer("quantity");
-    table.boolean("status_kranjang").notNullable().defaultTo(false);
-    table.string("status_keranjang");
+    table.boolean("status_keranjang").notNullable().defaultTo(false);
     table.timestamp("tanggal_upload");
     table.timestamp("tanggal_update");
   });

@@ -1,7 +1,7 @@
 const express = require("express");
 const routes = express.Router();
 const path = require("path");
-const DataArtikelControllers = require("../controllers/adminContollers-dataArtikel.js");
+const DataArtikelControllers = require("../controllers/adminControllers-dataArtikel.js");
 
 routes.get("/data_article", DataArtikelControllers.viewDataArticle);
 routes.get(

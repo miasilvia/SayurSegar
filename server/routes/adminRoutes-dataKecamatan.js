@@ -1,6 +1,5 @@
 const express = require("express");
 const routes = express.Router();
-const path = require("path");
 const DataKecamatanControllers = require("../controllers/adminControllers-dataKecamatan.js");
 
 routes.get("/data_kecamatan", DataKecamatanControllers.viewDataKecamatan);

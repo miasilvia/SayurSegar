@@ -1,4 +1,5 @@
 const fs = require("fs"); //memanggil fs
+const db = require("../db.js");
 
 class UserControllers {
   static helloWorld(req, res) {
@@ -78,7 +79,6 @@ class UserControllers {
     for (let i = 0; i < posts.length; i++) {
       let dataById = posts[i].id_produk;
 
-      
       if (dataById == idParams) {
         result = posts[i];
       }

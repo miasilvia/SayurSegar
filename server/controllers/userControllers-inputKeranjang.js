@@ -11,6 +11,21 @@ class InputToCart {
       tanggal_update: new Date(),
     };
     try {
+      const produk = await db("data_produk")
+        .where("id_produk", id_produk)
+        .first();
+      // Cek jumlah produk di keranjang
+      const jumlahDiKeranjang = await db("data_keranjang")
+        .where({ id_produk, id_user, status_keranjang: false })
+        .sum("quantity as total")
+        .first();
+      const totalQuantity =
+        (parseInt(jumlahDiKeranjang.total) || 0) + parseInt(quantity);
+      console.log(jumlahDiKeranjang.total, "ini total jml keranjang");
+      console.log(totalQuantity, "ini total quantity");
+      if (produk.stok_produk < totalQuantity) {
+        return res.status(400).json({ error: "Stok tidak cukup" });
+      }
       const dataProdId = await db("data_keranjang")
         .insert(tamptData)
         .returning("id_keranjang");

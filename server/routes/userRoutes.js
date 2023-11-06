@@ -11,9 +11,10 @@ const printTime = (req, res, next) => {
 
 routes.use(printTime);
 
-routes.post("/register", UserControllers.registerFormUser);
+// routes.post("/register", UserControllers.registerFormUser);
 
 routes.get("/loginForm", UserControllers.loginFormUser);
+routes.get("/register-user", UserControllers.registerFormUser);
 
 routes.post("/login", UserControllers.loginUserResult);
 

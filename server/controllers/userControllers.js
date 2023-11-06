@@ -24,7 +24,9 @@ class UserControllers {
   static loginFormUser(req, res) {
     res.render("loginForm"); ////memanggil file greeting.ejs di file views
   }
-
+  static registerFormUser(req, res) {
+    res.render("register-user"); ////memanggil file greeting.ejs di file views
+  }
   static loginUserResult(req, res) {
     const { username, password } = req.body;
     console.log(`${username} dan ${password}`);

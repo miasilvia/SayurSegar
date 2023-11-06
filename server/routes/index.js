@@ -3,10 +3,14 @@ const routes = express.Router();
 const userRoutes = require("./userRoutes"); //memanggil file userRoutes
 const userRegister = require("./userRoutes-registerAccount.js");
 const userAddToCart = require("./userRoutes-inputKeranjang.js");
+const userdataTransaction = require("./userRoutes-transaction.js");
+
 const adminRoutes = require("./adminRoutes");
 const adminArticleRoutes = require("./adminRoutes-dataArtikel.js");
 const adminKecamatanRoutes = require("./adminRoutes-dataKecamatan.js");
 const adminDesaRoutes = require("./adminRoutes-dataDesa.js");
+const adminDataUser = require("./adminRoutes-dataUser.js");
+
 const path = require("path");
 const UserControllers = require("../controllers/userControllers");
 
@@ -23,12 +27,19 @@ routes.get("../public/Sayuran.png", (req, res) => {
   res.sendFile(path.join(__dirname, "Sayuran.png"));
 });
 
-routes.use("/user", userRoutes, userRegister, userAddToCart); //memanggil variabel userRoutes dgn menambahkan /user untuk link
+routes.use(
+  "/user",
+  userRoutes,
+  userRegister,
+  userAddToCart,
+  userdataTransaction
+); //memanggil variabel userRoutes dgn menambahkan /user untuk link
 routes.use(
   "/admin",
   adminRoutes,
   adminArticleRoutes,
   adminKecamatanRoutes,
-  adminDesaRoutes
+  adminDesaRoutes,
+  adminDataUser
 );
 module.exports = routes; //untuk mengeksport objek router

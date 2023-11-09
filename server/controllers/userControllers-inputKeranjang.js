@@ -1,6 +1,10 @@
 const db = require("../db.js");
+
 class InputToCart {
   static async postDataCart(req, res) {
+    if (!req.session.user) {
+      return res.status(401).json({ message: "Please login first" });
+    }
     const { id_user, id_produk, quantity } = req.body;
     let tamptData = {
       id_user,
@@ -21,8 +25,6 @@ class InputToCart {
         .first();
       const totalQuantity =
         (parseInt(jumlahDiKeranjang.total) || 0) + parseInt(quantity);
-      console.log(jumlahDiKeranjang.total, "ini total jml keranjang");
-      console.log(totalQuantity, "ini total quantity");
       if (produk.stok_produk < totalQuantity) {
         return res.status(400).json({ error: "Stok tidak cukup" });
       }
@@ -36,6 +38,9 @@ class InputToCart {
   }
 
   static async deleteDataCart(req, res) {
+    if (!req.session.user) {
+      return res.status(401).json({ message: "Please login first" });
+    }
     const id_input = req.params.id_keranjang;
     try {
       const deleteData = await db("data_keranjang")

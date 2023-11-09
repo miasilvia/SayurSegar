@@ -1,31 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <form action="/register-user" method="POST">
-      <label for="nama_user">Nama User:</label><br />
-      <input type="text" id="nama_user" name="nama_user" /><br />
-      <label for="username">Username:</label><br />
-      <input type="text" id="username" name="username" /><br />
-      <label for="password">Password:</label><br />
-      <input type="password" id="password" name="password" /><br />
-      <label for="no_hp">No HP:</label><br />
-      <input type="text" id="no_hp" name="no_hp" /><br />
-      <label for="email_user">Email User:</label><br />
-      <input type="email" id="email_user" name="email_user" /><br />
-      <label for="alamat_lengkap">Alamat Lengkap:</label><br />
-      <input type="text" id="alamat_lengkap" name="alamat_lengkap" /><br />
-      <label for="id_kecamatan">ID Kecamatan:</label><br />
-      <input type="text" id="id_kecamatan" name="id_kecamatan" /><br />
-      <label for="id_desa">ID Desa:</label><br />
-      <input type="text" id="id_desa" name="id_desa" /><br />
-      <label for="kode_pos">Kode Pos:</label><br />
-      <input type="text" id="kode_pos" name="kode_pos" /><br />
-      <input type="submit" value="Submit" />
-    </form>
-  </body>
-</html>
+<%- include('header') %>
+<body>
+  <h1>Register Account User</h1>
+  <form action="/user/register-user" method="POST">
+    <label for="nama_user">Nama User:</label><br />
+    <input type="text" id="nama_user" name="nama_user" /><br />
+    <label for="username">Username:</label><br />
+    <input type="text" id="username" name="username" /><br />
+    <label for="password">Password:</label><br />
+    <input type="password" id="password" name="password" /><br />
+    <label for="no_hp">No HP:</label><br />
+    <input type="text" id="no_hp" name="no_hp" /><br />
+    <label for="email_user">Email User:</label><br />
+    <input type="email" id="email_user" name="email_user" /><br />
+    <label for="alamat_lengkap">Alamat Lengkap:</label><br />
+    <input type="text" id="alamat_lengkap" name="alamat_lengkap" /><br />
+    <label for="id_kecamatan">ID Kecamatan:</label><br />
+    <input type="text" id="id_kecamatan" name="id_kecamatan" /><br />
+    <label for="id_desa">ID Desa:</label><br />
+    <input type="text" id="id_desa" name="id_desa" /><br />
+    <label for="kode_pos">Kode Pos:</label><br />
+    <input type="text" id="kode_pos" name="kode_pos" /><br />
+    <input type="submit" value="Submit" />
+  </form>
+</body>
+<%- include('footer') %>

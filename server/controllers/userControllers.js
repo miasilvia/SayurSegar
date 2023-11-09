@@ -10,21 +10,23 @@ class UserControllers {
     res.render("greeting", { fullname: "Miaaaasa" });
   }
 
-  static viewProduct(req, res) {
-    // let dateNow = new Date();
-    let readDataProduk = fs.readFileSync("./db/dataProduk.json", "utf-8");
-    let dataProd = JSON.parse(readDataProduk); //json.parse() digunakan untuk mengurai data JSON menjadi objek
-    let dataProduk = {
-      // timestamp: dateNow,
-      listProduk: dataProd,
-    };
-    res.render("dataProduk", { dataProduk });
-  }
+  static async viewProduct(req, res) {
+    try {
+      const dataProduks = await db("data_produk").select("*");
+      let dataProduk = {
+        listProduk: dataProduks,
+      };
 
+      res.render("index", { dataProduk });
+      console.log(dataProduk);
+    } catch (error) {
+      res.status(500).json(error);
+    }
+  }
   static loginFormUser(req, res) {
     res.render("loginForm"); ////memanggil file greeting.ejs di file views
   }
-  static registerFormUser(req, res) {
+  static registerFormUser2(req, res) {
     res.render("register-user"); ////memanggil file greeting.ejs di file views
   }
   static loginUserResult(req, res) {

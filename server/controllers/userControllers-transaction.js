@@ -1,6 +1,3 @@
-// const Cart = require("../models/models.js");
-// const Transaction = require("../models/models.js");
-
 const db = require("../db.js");
 class InputToTransaction {
   static async postDataTransaction(req, res) {

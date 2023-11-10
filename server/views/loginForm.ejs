@@ -8,11 +8,26 @@
 <body>
   <h1>Login</h1>
   <form action="/user/login-user" method="POST">
-    <label for="username">Username:</label><br />
-    <input type="text" id="username" name="username" /><br />
-    <label for="password">Password:</label><br />
-    <input type="password" id="password" name="password" /><br />
-    <input type="submit" value="Login" />
+    <input
+      name="username"
+      id="username"
+      class="form-control"
+      type="text"
+      placeholder="Username"
+      aria-label="default input example"
+    />
+    <br />
+    <input
+      name="password"
+      id="password"
+      class="form-control"
+      type="password"
+      placeholder="Password"
+      aria-label="default input example"
+    />
+    <br />
+    <input type="submit" class="btn btn-dark" value="Login"></input>
+    <br />
   </form>
 </body>
 

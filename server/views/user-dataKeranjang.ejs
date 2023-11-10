@@ -1,0 +1,28 @@
+<%- include('header') %>
+<body>
+  <h1>Data Keranjang</h1>
+  <% if (dataKeranjang.length > 0) { %>
+  <table>
+    <tr>
+      <th>ID Keranjang</th>
+      <th>ID Produk</th>
+      <th>Quantity</th>
+      <th>ID User</th>
+    </tr>
+    <% dataKeranjang.forEach(function(item) { %>
+    <tr>
+      <td><%= item.id_keranjang %></td>
+      <td><%= item.id_produk %></td>
+      <td><%= item.quantity %></td>
+      <td><%= item.id_user %></td>
+    </tr>
+    <% }); %>
+  </table>
+  <form action="/user/data-transaction" method="POST">
+    <button type="submit">Proses ke Transaksi</button>
+  </form>
+  <% } else { %>
+  <p>Tidak ada data di keranjang.</p>
+  <% } %>
+</body>
+<%- include('footer') %>

@@ -30,7 +30,20 @@ class RegisterAccountUser {
       const dataProdId = await db("data_user")
         .insert(tamptData)
         .returning("id_user");
-      res.status(201).json(dataProdId);
+
+      return res.status(201).json({ message: "Anda berhasil daftar" });
+    } catch (error) {
+      res.status(500).json(error);
+    }
+  }
+
+  static async viewDataDesaByKecamatan(req, res) {
+    try {
+      const id_kecamatan = req.query.id_kecamatan;
+      const dataDesa = await db("data_desa").select("*");
+      const dataKecamatan = await db("data_kecamatan").select("*");
+
+      res.render("register-user", { dataKecamatan, dataDesa });
     } catch (error) {
       res.status(500).json(error);
     }

@@ -9,9 +9,18 @@ routes.use(
     cookie: { secure: false }, // set to true if your using https
   })
 );
+routes.get("/logout", function (req, res) {
+  req.session.destroy(function (err) {
+    if (err) {
+      console.log(err);
+    } else {
+      res.redirect("/");
+    }
+  });
+});
 const userRoutes = require("./userRoutes"); //memanggil file userRoutes
 const userRegister = require("./userRoutes-registerAccount.js");
-const userAddToCart = require("./userRoutes-inputKeranjang.js");
+const userAddToCart = require("./userRoutes-keranjang.js");
 const userInputTransaction = require("./userRoutes-transaction.js");
 const userInputOrder = require("./userRoutes-inputPesanan.js");
 const userLogin = require("./userRoutes-login.js");

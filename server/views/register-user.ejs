@@ -1,26 +1,96 @@
 <%- include('header') %>
 <body>
   <h1>Register Account User</h1>
-  <form action="/user/register-user" method="POST">
-    <label for="nama_user">Nama User:</label><br />
-    <input type="text" id="nama_user" name="nama_user" /><br />
-    <label for="username">Username:</label><br />
-    <input type="text" id="username" name="username" /><br />
-    <label for="password">Password:</label><br />
-    <input type="password" id="password" name="password" /><br />
-    <label for="no_hp">No HP:</label><br />
-    <input type="text" id="no_hp" name="no_hp" /><br />
-    <label for="email_user">Email User:</label><br />
-    <input type="email" id="email_user" name="email_user" /><br />
-    <label for="alamat_lengkap">Alamat Lengkap:</label><br />
-    <input type="text" id="alamat_lengkap" name="alamat_lengkap" /><br />
-    <label for="id_kecamatan">ID Kecamatan:</label><br />
-    <input type="text" id="id_kecamatan" name="id_kecamatan" /><br />
-    <label for="id_desa">ID Desa:</label><br />
-    <input type="text" id="id_desa" name="id_desa" /><br />
-    <label for="kode_pos">Kode Pos:</label><br />
-    <input type="text" id="kode_pos" name="kode_pos" /><br />
-    <input type="submit" value="Submit" />
+  <form action="/user/register-users" method="POST">
+    <input
+      name="nama_user"
+      id="nama_user"
+      class="form-control"
+      type="text"
+      placeholder="Nama Lengkap"
+      aria-label="default input example"
+    />
+    <br />
+    <input
+      name="username"
+      id="username"
+      class="form-control"
+      type="text"
+      placeholder="Username"
+      aria-label="default input example"
+    />
+    <br />
+    <input
+      name="password"
+      id="password"
+      class="form-control"
+      type="password"
+      placeholder="Password"
+      aria-label="default input example"
+    />
+    <br />
+    <input
+      name="no_hp"
+      id="no_hp"
+      class="form-control"
+      type="text"
+      placeholder="No Handphone"
+      aria-label="default input example"
+    />
+    <br />
+    <input
+      name="email_user"
+      id="email_user"
+      class="form-control"
+      type="email"
+      placeholder="Email"
+      aria-label="default input example"
+    />
+    <br />
+    <input
+      name="alamat_lengkap"
+      id="alamat_lengkap"
+      class="form-control"
+      type="text"
+      placeholder="Alamat Lengkap"
+      aria-label="default input example"
+    />
+    <br />
+    <select
+      class="form-select"
+      aria-label="Default select example"
+      id="id_kecamatan"
+      name="id_kecamatan"
+    >
+      <option selected>Pilih Kecamatan</option>
+      <% dataKecamatan.forEach(function(k) { %>
+
+      <option value="<%= k.id_kecamatan %>"><%= k.nama_kecamatan %></option>
+      <% }); %></select
+    ><br />
+    <select
+      class="form-select"
+      aria-label="Default select example"
+      id="id_desa"
+      name="id_desa"
+    >
+      <option selected>Pilih Desa</option>
+      <% dataDesa.forEach(function(k) { %>
+
+      <option value="<%= k.id_desa %>"><%= k.nama_desa %></option>
+      <% }); %></select
+    ><br />
+    <input
+      name="kode_pos"
+      id="kode_pos"
+      class="form-control"
+      type="text"
+      placeholder="Kode Pos"
+      aria-label="default input example"
+    />
+    <br />
+    <input type="submit" class="btn btn-dark" value="Submit"></input>
+    <br />
   </form>
 </body>
 <%- include('footer') %>

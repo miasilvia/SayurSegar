@@ -1,11 +1,24 @@
 const db = require("../db.js");
 
-class InputToCart {
+class ProccessToCart {
+  static async viewDataCartUser(req, res) {
+    try {
+      const id_user = req.session.user.id_user; //id_user yg sedang login
+      const dataKeranjang = await db("data_keranjang")
+        .where({ id_user })
+        .select("*");
+      res.render("user-dataKeranjang", { dataKeranjang: dataKeranjang });
+    } catch (error) {
+      res.status(500).json(error);
+    }
+  }
+
   static async postDataCart(req, res) {
     if (!req.session.user) {
       return res.status(401).json({ message: "Please login first" });
     }
-    const { id_user, id_produk, quantity } = req.body;
+    const { id_produk, quantity } = req.body;
+    const id_user = req.session.user.id_user; //id_user yg sedang login
     let tamptData = {
       id_user,
       id_produk,
@@ -53,4 +66,4 @@ class InputToCart {
   }
 }
 
-module.exports = InputToCart;
+module.exports = ProccessToCart;

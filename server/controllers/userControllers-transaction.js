@@ -2,24 +2,35 @@ const db = require("../db.js");
 class InputToTransaction {
   static async postDataTransaction(req, res) {
     try {
-      // Dapatkan data keranjang berdasarkan id_user
-      const { id_user } = req.body;
+      const id_user = req.session.user.id_user; //id_user yg sedang login
       const cartItems = await db("data_keranjang")
         .where({ id_user, status_keranjang: false })
         .select("*");
 
-      // Buat array untuk menyimpan semua promise
       let promises = [];
-
-      // Buat kode transaksi unik
       const uniqueCode = Math.floor(Math.random() * 1000000);
+      let grandTotal = 0;
 
       for (let i = 0; i < cartItems.length; i++) {
-        console.log(cartItems[i].id_keranjang);
+        const produk = await db("data_produk")
+          .where("id_produk", cartItems[i].id_produk)
+          .first();
+        const total = produk.harga_produk * cartItems[i].quantity;
+
+        // Hitung diskon
+        const diskon = total * (produk.diskon_produk / 100);
+        const totalAfterDiskon = total - diskon;
+
+        // Tambahkan totalAfterDiskon ke grandTotal
+        grandTotal += totalAfterDiskon;
+      }
+
+      // Setelah semua perhitungan selesai, masukkan grandTotal ke database
+      for (let i = 0; i < cartItems.length; i++) {
         let tamptData = {
           id_keranjang: cartItems[i].id_keranjang,
           kode_transaksi: uniqueCode,
-          total: 200000,
+          total: grandTotal, // grandTotal dari hasil perhitungan diatas
           status_transaksi: false,
           tanggal_upload: new Date(),
           tanggal_update: new Date(),
@@ -40,7 +51,7 @@ class InputToTransaction {
       const dataProdId = await Promise.all(promises);
 
       // Kirim respons
-      res.status(201).json(dataProdId);
+      res.status(201).json({ dataProdId, grandTotal });
     } catch (error) {
       res
         .status(500)

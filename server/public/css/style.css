@@ -1,15 +1,19 @@
 
-      body {
+      body, html {
         font-family: Arial, sans-serif;
         margin:0px;
         padding:0px;
       }
+      .container, .container-fluid {
+    padding: 0;
+}
       .header {
-        background-color: #0d3405d3;
+        
         padding: 20px;
         text-align: center;
       }
       .nav {
+        background-color: #0d3405d3;
         display: flex;
         justify-content: space-around;
         list-style-type: none;

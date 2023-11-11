@@ -1,0 +1,39 @@
+<%- include('header') %>
+<body>
+  <h1>Data Keranjang</h1>
+  <% if (dataTransaksi.length > 0) { %>
+  <table>
+    <tr>
+      <th>ID Transaksi</th>
+      <th>ID Keranjang</th>
+      <th>Kode Transaksi</th>
+      <th>Total Bayar</th>
+    </tr>
+    <% dataTransaksi.forEach(function(item) { %>
+    <tr>
+      <td><%= item.id_transaksi %></td>
+      <td><%= item.id_keranjang %></td>
+      <td><%= item.kode_transaksi %></td>
+      <td><%= item.total %></td>
+    </tr>
+    <% }); %>
+  </table>
+  <% } else { %>
+  <p>Tidak ada data di keranjang.</p>
+  <% } %>
+  <form
+    action="/user/user-transaction"
+    method="post"
+    enctype="multipart/form-data"
+  >
+    <label for="bukti_transfer">Upload Bukti Transfer:</label>
+    <input
+      type="file"
+      id="bukti_transfer"
+      name="bukti_transfer"
+      accept="image/*"
+    />
+    <input type="submit" value="Upload" />
+  </form>
+</body>
+<%- include('footer') %>

@@ -2,10 +2,13 @@ const db = require("../db.js");
 
 class ProccessToCart {
   static async viewDataCartUser(req, res) {
+    if (!req.session.user) {
+      return res.status(401).json({ message: "Please login first" });
+    }
     try {
       const id_user = req.session.user.id_user; //id_user yg sedang login
       const dataKeranjang = await db("data_keranjang")
-        .where({ id_user })
+        .where({ id_user, status_keranjang: false })
         .select("*");
       res.render("user-dataKeranjang", { dataKeranjang: dataKeranjang });
     } catch (error) {

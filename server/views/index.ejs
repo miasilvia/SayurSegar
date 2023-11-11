@@ -1,9 +1,15 @@
 <%- include('header') %>
 <body>
+  <div style="text-align: center;">
+    <br>
+  <br>
   <h1>Selamat datang di Website Sayur Segar</h1>
   <h5>Jangan lupa register dan login untuk berbelanja yaa</h5>
   <h6>Selamat berbelanja!</h6>
-  <div style="display: flex; flex-wrap: wrap">
+  <br>
+  <br>
+</div>
+  <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center">
     <% if (dataProduks.length > 0) { %> <% dataProduks.forEach(function(item) {
     %>
     <div class="card" style="width: 18rem">

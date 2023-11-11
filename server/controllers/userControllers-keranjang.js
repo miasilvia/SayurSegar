@@ -8,8 +8,22 @@ class ProccessToCart {
     try {
       const id_user = req.session.user.id_user; //id_user yg sedang login
       const dataKeranjang = await db("data_keranjang")
-        .where({ id_user, status_keranjang: false })
-        .select("*");
+        .join(
+          "data_produk",
+          "data_keranjang.id_produk",
+          "=",
+          "data_produk.id_produk"
+        )
+        .where({
+          "data_keranjang.id_user": id_user,
+          "data_keranjang.status_keranjang": false,
+        })
+        .select(
+          "data_keranjang.*",
+          "data_produk.nama_produk",
+          "data_produk.harga_produk",
+          "data_produk.diskon_produk"
+        );
       res.render("user-dataKeranjang", { dataKeranjang: dataKeranjang });
     } catch (error) {
       res.status(500).json(error);

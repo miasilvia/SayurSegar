@@ -1,74 +1,107 @@
 <%- include('header') %>
 <body>
-  <form
-    action="/user/user-dataAccount/<%= user.id_user %>?_method=put"
-    method="POST"
-  >
-    <input type="hidden" name="_method" value="PUT" />
-    <label for="nama_user">Nama User:</label><br />
-    <input
-      type="text"
-      id="nama_user"
-      name="nama_user"
-      value="<%= user.nama_user %>"
-    /><br />
-    <label for="username">Username:</label><br />
-    <input
-      type="text"
-      id="username"
-      name="username"
-      value="<%= user.username %>"
-    /><br />
-    <label for="password">Password:</label><br />
-    <input
-      type="password"
-      id="password"
-      name="password"
-      value="<%= user.password %>"
-    /><br />
-    <label for="no_hp">No HP:</label><br />
-    <input
-      type="text"
-      id="no_hp"
-      name="no_hp"
-      value="<%= user.no_hp %>"
-    /><br />
-    <label for="email_user">Email User:</label><br />
-    <input
-      type="email"
-      id="email_user"
-      name="email_user"
-      value="<%= user.email_user %>"
-    /><br />
-    <label for="alamat_lengkap">Alamat Lengkap:</label><br />
-    <input
-      type="text"
-      id="alamat_lengkap"
-      name="alamat_lengkap"
-      value="<%= user.alamat_lengkap %>"
-    /><br />
-    <label for="id_kecamatan">ID Kecamatan:</label><br />
-    <input
-      type="text"
-      id="id_kecamatan"
-      name="id_kecamatan"
-      value="<%= user.id_kecamatan %>"
-    /><br />
-    <label for="id_desa">ID Desa:</label><br />
-    <input
-      type="text"
-      id="id_desa"
-      name="id_desa"
-      value="<%= user.id_desa %>"
-    /><br />
-    <label for="kode_pos">Kode Pos:</label><br />
-    <input
-      type="text"
-      id="kode_pos"
-      name="kode_pos"
-      value="<%= user.kode_pos %>"
-    /><br />
-    <input type="submit" value="Submit" />
-  </form>
+  <div class="container">
+    <h2>Kelola Data Akun Anda!</h2>
+    <form
+      action="/user/user-dataAccount/<%= user.id_user %>?_method=put"
+      method="POST"
+      class="mt-4"
+    >
+      <input type="hidden" name="_method" value="PUT" />
+      <div class="form-group">
+        <label for="nama_user">Nama User:</label>
+        <input
+          type="text"
+          id="nama_user"
+          name="nama_user"
+          value="<%= user.nama_user %>"
+          class="form-control"
+        />
+      </div>
+      <div class="form-group">
+        <label for="username">Username:</label>
+        <input
+          type="text"
+          id="username"
+          name="username"
+          value="<%= user.username %>"
+          class="form-control"
+        />
+      </div>
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          value="<%= user.password %>"
+          class="form-control"
+        />
+      </div>
+      <div class="form-group">
+        <label for="no_hp">No HP:</label>
+        <input
+          type="text"
+          id="no_hp"
+          name="no_hp"
+          value="<%= user.no_hp %>"
+          class="form-control"
+        />
+      </div>
+      <div class="form-group">
+        <label for="email_user">Email User:</label>
+        <input
+          type="email"
+          id="email_user"
+          name="email_user"
+          value="<%= user.email_user %>"
+          class="form-control"
+        />
+      </div>
+      <div class="form-group">
+        <label for="alamat_lengkap">Alamat Lengkap:</label>
+        <input
+          type="text"
+          id="alamat_lengkap"
+          name="alamat_lengkap"
+          value="<%= user.alamat_lengkap %>"
+          class="form-control"
+        />
+      </div>
+      <div class="form-group">
+        <label for="id_kecamatan">ID Kecamatan:</label>
+        <input
+          type="text"
+          id="id_kecamatan"
+          name="id_kecamatan"
+          value="<%= user.id_kecamatan %>"
+          class="form-control"
+        />
+      </div>
+      <div class="form-group">
+        <label for="id_desa">ID Desa:</label>
+        <input
+          type="text"
+          id="id_desa"
+          name="id_desa"
+          value="<%= user.id_desa %>"
+          class="form-control"
+        />
+      </div>
+      <div class="form-group">
+        <label for="kode_pos">Kode Pos:</label>
+        <input
+          type="text"
+          id="kode_pos"
+          name="kode_pos"
+          value="<%= user.kode_pos %>"
+          class="form-control"
+        />
+      </div>
+      <div class="form-group">
+        <input type="submit" value="Submit" class="btn btn-primary" />
+      </div>
+    </form>
+  </div>
 </body>
 <%- include('footer') %>

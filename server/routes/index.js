@@ -24,6 +24,7 @@ const userAddToCart = require("./userRoutes-keranjang.js");
 const userInputTransaction = require("./userRoutes-transaction.js");
 const userInputOrder = require("./userRoutes-inputPesanan.js");
 const userLogin = require("./userRoutes-login.js");
+const dataAccountUser = require("./userRoutes-dataAccountUser.js");
 
 const adminRoutes = require("./adminRoutes");
 const adminArticleRoutes = require("./adminRoutes-dataArtikel.js");
@@ -52,7 +53,8 @@ routes.use(
   userAddToCart,
   userInputTransaction,
   userInputOrder,
-  userLogin
+  userLogin,
+  dataAccountUser
 ); //memanggil variabel userRoutes dgn menambahkan /user untuk link
 routes.use(
   "/admin",

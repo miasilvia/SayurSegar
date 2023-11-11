@@ -51,7 +51,8 @@ class InputToTransaction {
       const dataProdId = await Promise.all(promises);
 
       // Kirim respons
-      res.status(201).json({ dataProdId, grandTotal });
+      // res.status(201).json({ dataProdId, grandTotal });
+      res.redirect("/user/user-transaction");
     } catch (error) {
       res
         .status(500)

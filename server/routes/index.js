@@ -40,8 +40,6 @@ routes.get("/", UserControllers.viewProduct);
 
 routes.get("/greeting", UserControllers.greeting);
 
-routes.get("/data_artikel", UserControllers.viewArtikel);
-
 ////////////////////gambar/////////////////////////
 routes.get("../public/Sayuran.png", (req, res) => {
   res.sendFile(path.join(__dirname, "Sayuran.png"));

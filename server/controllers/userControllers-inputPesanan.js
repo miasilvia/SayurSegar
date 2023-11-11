@@ -61,7 +61,7 @@ class InputToOrder {
           .update({ status_transaksi: true });
       }
 
-      res.status(201).json(dataProdId);
+      res.status(201).json({ message: "Transaksi berhasil!" });
     } catch (err) {
       console.log(err);
     }

@@ -47,7 +47,8 @@ class ProccessToCart {
       const dataProdId = await db("data_keranjang")
         .insert(tamptData)
         .returning("id_keranjang");
-      res.status(201).json(dataProdId);
+      // res.status(201).json(dataProdId);
+      res.redirect("/user/data-cart");
     } catch (error) {
       res.status(500).json(error);
     }
@@ -62,7 +63,7 @@ class ProccessToCart {
       const deleteData = await db("data_keranjang")
         .where({ id_keranjang: id_input })
         .del();
-      res.status(200).json(deleteData);
+      res.redirect("/user/data-cart");
     } catch (error) {
       res.status(500).json(error);
     }

@@ -15,6 +15,15 @@
       <td><%= item.id_produk %></td>
       <td><%= item.quantity %></td>
       <td><%= item.id_user %></td>
+      <td>
+        <form
+          action="/user/data-cart/<%= item.id_keranjang %>?_method=DELETE"
+          method="post"
+        >
+          <input type="hidden" name="_method" value="DELETE" />
+          <button type="submit">Hapus</button>
+        </form>
+      </td>
     </tr>
     <% }); %>
   </table>

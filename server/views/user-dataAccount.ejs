@@ -69,24 +69,20 @@
         />
       </div>
       <div class="form-group">
-        <label for="id_kecamatan">ID Kecamatan:</label>
-        <input
-          type="text"
-          id="id_kecamatan"
-          name="id_kecamatan"
-          value="<%= user.id_kecamatan %>"
-          class="form-control"
-        />
+        <label for="id_kecamatan">Kecamatan:</label>
+        <select id="id_kecamatan" name="id_kecamatan" class="form-control">
+          <% kecamatan.forEach(function(kec) { %>
+            <option value="<%= kec.id_kecamatan %>" <%= user.id_kecamatan == kec.id_kecamatan ? 'selected' : '' %>><%= kec.nama_kecamatan %></option>
+          <% }); %>
+        </select>
       </div>
       <div class="form-group">
-        <label for="id_desa">ID Desa:</label>
-        <input
-          type="text"
-          id="id_desa"
-          name="id_desa"
-          value="<%= user.id_desa %>"
-          class="form-control"
-        />
+        <label for="id_desa">Desa:</label>
+        <select id="id_desa" name="id_desa" class="form-control">
+          <% desa.forEach(function(des) { %>
+            <option value="<%= des.id_desa %>" <%= user.id_desa == des.id_desa ? 'selected' : '' %>><%= des.nama_desa %></option>
+          <% }); %>
+        </select>
       </div>
       <div class="form-group">
         <label for="kode_pos">Kode Pos:</label>

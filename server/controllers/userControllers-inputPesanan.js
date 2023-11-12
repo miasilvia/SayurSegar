@@ -61,7 +61,7 @@ class InputToOrder {
           .update({ status_transaksi: true });
       }
 
-      res.status(201).json({ message: "Transaksi berhasil!" });
+      res.redirect("/user/data-pesananUser");
     } catch (err) {
       console.log(err);
     }
@@ -73,8 +73,14 @@ class InputToOrder {
     try {
       const id_user = req.session.user.id_user; //id_user yg sedang login
       const dataTransaksi = await db("data_transaksi")
-        .where({ status_transaksi: false })
-        .select("*");
+        .join(
+          "data_keranjang",
+          "data_transaksi.id_keranjang",
+          "=",
+          "data_keranjang.id_keranjang"
+        )
+        .where({ status_transaksi: false, "data_keranjang.id_user": id_user })
+        .select("data_transaksi.*", "data_keranjang.*");
       res.render("user-transaction", {
         id_user: id_user,
         dataTransaksi: dataTransaksi,

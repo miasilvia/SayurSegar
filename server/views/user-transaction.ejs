@@ -1,0 +1,45 @@
+<%- include('header') %>
+<body>
+  <h1>Data Transaksi</h1>
+  <% if (dataTransaksi.length > 0) { %>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">No</th>
+        <th scope="col">Kode Transaksi</th>
+        <th scope="col">Total Bayar</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% let seen = new Set(); dataTransaksi.forEach(function(item, index) { if
+      (!seen.has(item.kode_transaksi)) { seen.add(item.kode_transaksi); %>
+      <tr>
+        <td><%= index +1 %></td>
+        <td><%= item.kode_transaksi %></td>
+        <td><%= item.total %></td>
+      </tr>
+      <% }}); %>
+    </tbody>
+  </table>
+  <% } else { %>
+  <p>Tidak ada data di keranjang.</p>
+  <% } %>
+  <form
+    action="/user/user-transaction"
+    method="post"
+    enctype="multipart/form-data"
+  >
+    <div class="form-group">
+      <label for="bukti_transfer">Upload Bukti Transfer:</label>
+      <input
+        type="file"
+        id="bukti_transfer"
+        name="bukti_transfer"
+        accept="image/*"
+        class="form-control-file"
+      />
+    </div>
+    <button type="submit" class="btn btn-primary">Upload</button>
+  </form>
+</body>
+<%- include('footer') %>

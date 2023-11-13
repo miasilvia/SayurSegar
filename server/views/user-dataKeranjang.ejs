@@ -1,0 +1,49 @@
+<%- include('header') %>
+<body>
+  <h1>Data Keranjang</h1>
+  <% if (dataKeranjang.length > 0) { %>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">No</th>
+        <th scope="col">Nama Produk</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Harga Produk (sudah dihitung diskon)</th>
+        <th scope="col">Aksi</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% let total = 0; dataKeranjang.forEach(function(item, index) { let
+      subtotal = (item.harga_produk - ( item.harga_produk * (item.diskon_produk
+      / 100))) * item.quantity; total += subtotal; %>
+      <tr>
+        <th scope="row"><%= index + 1 %></th>
+        <td><%= item.nama_produk %></td>
+        <td><%= item.quantity %></td>
+        <td><%= subtotal %></td>
+        <td>
+          <form
+            action="/user/data-cart/<%= item.id_keranjang %>?_method=DELETE"
+            method="post"
+          >
+            <input type="hidden" name="_method" value="DELETE" />
+            <button type="submit" class="btn btn-danger">Hapus</button>
+          </form>
+        </td>
+      </tr>
+      <% }); %>
+    </tbody>
+  </table>
+  <table class="table table-striped">
+    <tr>
+      <h2><b>Total: <%= total %></b></h2>
+    </tr>
+  </table>
+  <form action="/user/data-transaction" method="POST">
+    <button type="submit" class="btn btn-dark">Proses Transaksi</button>
+  </form>
+  <% } else { %>
+  <p>Tidak ada data di keranjang.</p>
+  <% } %>
+</body>
+<%- include('footer') %>

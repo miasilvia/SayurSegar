@@ -1,0 +1,35 @@
+<%- include('header') %>
+<body>
+  <div style="text-align: center;">
+    <br>
+  <br>
+  <h1>Selamat datang di Website Sayur Segar</h1>
+  <h5>Jangan lupa register dan login untuk berbelanja yaa</h5>
+  <h6>Selamat berbelanja!</h6>
+  <br>
+  <br>
+</div>
+  <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center">
+    <% if (dataProduks.length > 0) { %> <% dataProduks.forEach(function(item) {
+    %>
+    <div class="card" style="width: 18rem">
+      <img src="<%= item.foto_produk %>" class="card-img-top img-fluid" style=" height: 100%; height: 15rem;" alt="..." />
+      <div class="card-body">
+        <h5 class="card-title"><%= item.nama_produk %></h5>
+        <Diskon:>Stok: <%= item.stok_produk %> </p>
+        <p>Rp. : <%= item.harga_produk %> / <%= item.satuan_produk %> gram   Disc: <%= item.diskon_produk %> %</p>
+        <p class="card-text"><%= item.deskripsi_produk %></p>
+        <form action="/user/data-cart" method="POST">
+          <input type="hidden" name="id_produk" value="<%= item.id_produk %>" />
+      <input type="number" placeholder="jumlah produk" name="quantity" id="jumlah<%=item%>" />
+          <button type="submit" class="btn btn-dark">Add</button>
+      </form>
+      </div>
+    </div>
+    <% }); %> <% } else { %>
+    <p>Tidak ada data Produk.</p>
+    <% } %>
+  </div>
+  
+</body>
+<%- include('footer') %>

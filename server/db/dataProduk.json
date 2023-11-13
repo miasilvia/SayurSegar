@@ -1,0 +1,75 @@
+[
+  {
+    "id_produk": 1,
+    "nama_produk": "Pepayas",
+    "harga_produk": "7000",
+    "stok_produk": "3",
+    "satuan_produk": "250 g ",
+    "foto_produk": "pepaya.png",
+    "deskripsi_produk": "ini adalah wortel",
+    "diskon_produk": "0",
+    "eskripsi_produk": "ini adalah pepaya"
+  },
+  {
+    "id_produk": 2,
+    "nama_produk": "Tomat",
+    "harga_produk": 11000,
+    "stok_produk": 10,
+    "satuan_produk": "250 g",
+    "foto_produk": "tomat.jpg",
+    "deskripsi_produk": "ini adalah tomat",
+    "diskon_produk": 2
+  },
+  {
+    "id_produk": 3,
+    "nama_produk": "Timun",
+    "harga_produk": 5000,
+    "stok_produk": 12,
+    "satuan_produk": "250 g",
+    "foto_produk": "timun.jpg",
+    "deskripsi_produk": "ini adalah timun",
+    "diskon_produk": 0
+  },
+  {
+    "id_produk": 4,
+    "nama_produk": "Jagung",
+    "harga_produk": "5000",
+    "stok_produk": "3",
+    "satuan_produk": "250 g ",
+    "foto_produk": "jagung.png",
+    "deskripsi_produk": "ini adalah jagung",
+    "diskon_produk": "0"
+  },
+  {
+    "id_produk": 5,
+    "nama_produk": "Bawang Putih",
+    "harga_produk": "10000",
+    "stok_produk": "3",
+    "satuan_produk": "250 g ",
+    "foto_produk": "bawang-putih.png",
+    "deskripsi_produk": "ini adalah Bawang Putih",
+    "diskon_produk": "0"
+  },
+  {
+    "id_produk": 6,
+    "nama_produk": "Daun Bawang",
+    "harga_produk": "4000",
+    "stok_produk": "3",
+    "satuan_produk": "250 g ",
+    "foto_produk": "Daun_bawang.png",
+    "deskripsi_produk": "ini adalah Daun bawang",
+    "diskon_produk": "0",
+    "eskripsi_produk": "ini adalah Daun bawang"
+  },
+  {
+    "id_produk": 7,
+    "nama_produk": "Ubis",
+    "harga_produk": "20000",
+    "stok_produk": "20",
+    "satuan_produk": "500",
+    "foto_produk": "ubi.png",
+    "deskripsi_produk": "ini adalah ubi",
+    "diskon_produk": "0",
+    "eskripsi_produk": "ini adalah ubi"
+  }
+]

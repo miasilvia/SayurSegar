@@ -1,0 +1,49 @@
+<%- include('header') %>
+<body>
+  <h1>Data Pesanan</h1>
+  <% if (dataPesanan.length > 0) { %>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">No</th>
+        <th scope="col">ID Pesanan</th>
+        <th scope="col">ID Transaksi</th>
+        <th scope="col">Kode Transaksi</th>
+        <th scope="col">Bukti Transfer</th>
+        <th scope="col">Status Pesanan</th>
+        <th scope="col">Aksi</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% let total = 0; dataPesanan.forEach(function(item, index) { %>
+      <tr>
+        <th scope="row"><%= index + 1 %></th>
+        <td><%= item.id_pesanan %></td>
+        <td><%= item.id_transaksi %></td>
+        <td><%= item.kode_transaksi %></td>
+        <td>
+          <a href="<%= item.bukti_transfer %>" target="_blank">
+            <img width="50px" src="<%= item.bukti_transfer %>" />
+          </a>
+        </td>
+        <td><%= item.status_pesanan %></td>
+        <td>
+          <% if (item.status_pesanan !== 'diterima') { %>
+          <form
+            action="/user/data-pesananUser/<%= item.id_pesanan %>?_method=PUT"
+            method="post"
+          >
+            <input type="hidden" name="_method" value="PUT" />
+            <button type="submit" class="btn btn-dark">Sudah diterima</button>
+          </form>
+          <% } else { %> Selesai <% } %>
+        </td>
+      </tr>
+      <% }); %>
+    </tbody>
+  </table>
+  <% } else { %>
+  <p>Tidak ada data Pesanan.</p>
+  <% } %>
+</body>
+<%- include('footer') %>
